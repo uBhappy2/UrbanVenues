@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  ViewController.h
 //  UrbanVenues
 //
 //  Created by Rao, Amit on 7/10/15.
@@ -8,9 +8,7 @@
 
 @import UIKit;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface VenuesViewController : UITableViewController
 
 
 @end

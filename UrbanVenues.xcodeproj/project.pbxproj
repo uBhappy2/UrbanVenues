@@ -7,9 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E448F3781B50679300E18A3B /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F3771B50679300E18A3B /* DetailViewController.m */; };
+		E448F37B1B506CAA00E18A3B /* VenueModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F37A1B506CAA00E18A3B /* VenueModel.m */; };
+		E448F37E1B506CEB00E18A3B /* FoursquareService.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F37D1B506CEB00E18A3B /* FoursquareService.m */; };
+		E448F3821B50703800E18A3B /* PhotosDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F3811B50703800E18A3B /* PhotosDTO.m */; };
+		E448F3861B5070C400E18A3B /* TipsDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F3851B5070C400E18A3B /* TipsDTO.m */; };
 		E47CE74B1B505787005E5D17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE74A1B505787005E5D17 /* main.m */; };
 		E47CE74E1B505787005E5D17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE74D1B505787005E5D17 /* AppDelegate.m */; };
-		E47CE7511B505787005E5D17 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE7501B505787005E5D17 /* ViewController.m */; };
+		E47CE7511B505787005E5D17 /* VenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE7501B505787005E5D17 /* VenuesViewController.m */; };
 		E47CE7541B505787005E5D17 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E47CE7521B505787005E5D17 /* Main.storyboard */; };
 		E47CE7561B505787005E5D17 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E47CE7551B505787005E5D17 /* Images.xcassets */; };
 		E47CE7591B505787005E5D17 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E47CE7571B505787005E5D17 /* LaunchScreen.xib */; };
@@ -27,13 +32,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E448F3761B50679300E18A3B /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		E448F3771B50679300E18A3B /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		E448F3791B506CAA00E18A3B /* VenueModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueModel.h; sourceTree = "<group>"; };
+		E448F37A1B506CAA00E18A3B /* VenueModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueModel.m; sourceTree = "<group>"; };
+		E448F37C1B506CEB00E18A3B /* FoursquareService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FoursquareService.h; sourceTree = "<group>"; };
+		E448F37D1B506CEB00E18A3B /* FoursquareService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FoursquareService.m; sourceTree = "<group>"; };
+		E448F3801B50703800E18A3B /* PhotosDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotosDTO.h; sourceTree = "<group>"; };
+		E448F3811B50703800E18A3B /* PhotosDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosDTO.m; sourceTree = "<group>"; };
+		E448F3841B5070C400E18A3B /* TipsDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsDTO.h; sourceTree = "<group>"; };
+		E448F3851B5070C400E18A3B /* TipsDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsDTO.m; sourceTree = "<group>"; };
 		E47CE7451B505787005E5D17 /* UrbanVenues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrbanVenues.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47CE7491B505787005E5D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E47CE74A1B505787005E5D17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E47CE74C1B505787005E5D17 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E47CE74D1B505787005E5D17 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E47CE74F1B505787005E5D17 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E47CE7501B505787005E5D17 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E47CE74F1B505787005E5D17 /* VenuesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VenuesViewController.h; sourceTree = "<group>"; };
+		E47CE7501B505787005E5D17 /* VenuesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VenuesViewController.m; sourceTree = "<group>"; };
 		E47CE7531B505787005E5D17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E47CE7551B505787005E5D17 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E47CE7581B505787005E5D17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -60,6 +75,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E448F37F1B50701B00E18A3B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E448F3791B506CAA00E18A3B /* VenueModel.h */,
+				E448F37A1B506CAA00E18A3B /* VenueModel.m */,
+				E448F3801B50703800E18A3B /* PhotosDTO.h */,
+				E448F3811B50703800E18A3B /* PhotosDTO.m */,
+				E448F3841B5070C400E18A3B /* TipsDTO.h */,
+				E448F3851B5070C400E18A3B /* TipsDTO.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		E47CE73C1B505787005E5D17 = {
 			isa = PBXGroup;
 			children = (
@@ -81,10 +109,15 @@
 		E47CE7471B505787005E5D17 /* UrbanVenues */ = {
 			isa = PBXGroup;
 			children = (
+				E448F37F1B50701B00E18A3B /* Model */,
 				E47CE74C1B505787005E5D17 /* AppDelegate.h */,
 				E47CE74D1B505787005E5D17 /* AppDelegate.m */,
-				E47CE74F1B505787005E5D17 /* ViewController.h */,
-				E47CE7501B505787005E5D17 /* ViewController.m */,
+				E448F3761B50679300E18A3B /* DetailViewController.h */,
+				E448F3771B50679300E18A3B /* DetailViewController.m */,
+				E448F37C1B506CEB00E18A3B /* FoursquareService.h */,
+				E448F37D1B506CEB00E18A3B /* FoursquareService.m */,
+				E47CE74F1B505787005E5D17 /* VenuesViewController.h */,
+				E47CE7501B505787005E5D17 /* VenuesViewController.m */,
 				E47CE7521B505787005E5D17 /* Main.storyboard */,
 				E47CE7551B505787005E5D17 /* Images.xcassets */,
 				E47CE7571B505787005E5D17 /* LaunchScreen.xib */,
@@ -219,9 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E47CE7511B505787005E5D17 /* ViewController.m in Sources */,
+				E47CE7511B505787005E5D17 /* VenuesViewController.m in Sources */,
+				E448F37B1B506CAA00E18A3B /* VenueModel.m in Sources */,
+				E448F37E1B506CEB00E18A3B /* FoursquareService.m in Sources */,
+				E448F3861B5070C400E18A3B /* TipsDTO.m in Sources */,
+				E448F3821B50703800E18A3B /* PhotosDTO.m in Sources */,
 				E47CE74E1B505787005E5D17 /* AppDelegate.m in Sources */,
 				E47CE74B1B505787005E5D17 /* main.m in Sources */,
+				E448F3781B50679300E18A3B /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +454,7 @@
 				E47CE76A1B505787005E5D17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E47CE76B1B505787005E5D17 /* Build configuration list for PBXNativeTarget "UrbanVenuesTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +463,7 @@
 				E47CE76D1B505787005E5D17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

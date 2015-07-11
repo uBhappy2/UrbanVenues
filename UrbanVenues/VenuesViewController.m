@@ -6,17 +6,18 @@
 //  Copyright (c) 2015 Rao, Amit. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "VenuesViewController.h"
 
-@interface ViewController ()
+@interface VenuesViewController ()
 
 @end
 
-@implementation ViewController
+@implementation VenuesViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.title = @"Urban Venues";
 }
 
 - (void)didReceiveMemoryWarning {
