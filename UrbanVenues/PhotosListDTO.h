@@ -6,11 +6,14 @@
 //  Copyright (c) 2015 Rao, Amit. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+@class PhotoDTO;
 
-@interface PhotosDTO : NSObject
+@interface PhotosListDTO : NSObject
 
 @property (nonatomic, assign) NSInteger count;
-@property (nonatomic, strong) NSArray *photos;
+@property (nonatomic, strong) NSMutableArray *photos;
+
+- (PhotoDTO *)firstPhotoOfVenue;
 
 @end
