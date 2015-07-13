@@ -12,6 +12,7 @@
 		E448F37E1B506CEB00E18A3B /* FoursquareService.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F37D1B506CEB00E18A3B /* FoursquareService.m */; };
 		E448F3821B50703800E18A3B /* PhotosDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F3811B50703800E18A3B /* PhotosDTO.m */; };
 		E448F3861B5070C400E18A3B /* TipsDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F3851B5070C400E18A3B /* TipsDTO.m */; };
+		E448F3891B525BEB00E18A3B /* VenueCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F3881B525BEB00E18A3B /* VenueCellViewModel.m */; };
 		E47CE74B1B505787005E5D17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE74A1B505787005E5D17 /* main.m */; };
 		E47CE74E1B505787005E5D17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE74D1B505787005E5D17 /* AppDelegate.m */; };
 		E47CE7511B505787005E5D17 /* VenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE7501B505787005E5D17 /* VenuesViewController.m */; };
@@ -42,6 +43,8 @@
 		E448F3811B50703800E18A3B /* PhotosDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotosDTO.m; sourceTree = "<group>"; };
 		E448F3841B5070C400E18A3B /* TipsDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TipsDTO.h; sourceTree = "<group>"; };
 		E448F3851B5070C400E18A3B /* TipsDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TipsDTO.m; sourceTree = "<group>"; };
+		E448F3871B525BEB00E18A3B /* VenueCellViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueCellViewModel.h; sourceTree = "<group>"; };
+		E448F3881B525BEB00E18A3B /* VenueCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueCellViewModel.m; sourceTree = "<group>"; };
 		E47CE7451B505787005E5D17 /* UrbanVenues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrbanVenues.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47CE7491B505787005E5D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E47CE74A1B505787005E5D17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,8 +87,19 @@
 				E448F3811B50703800E18A3B /* PhotosDTO.m */,
 				E448F3841B5070C400E18A3B /* TipsDTO.h */,
 				E448F3851B5070C400E18A3B /* TipsDTO.m */,
+				E448F3871B525BEB00E18A3B /* VenueCellViewModel.h */,
+				E448F3881B525BEB00E18A3B /* VenueCellViewModel.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		E448F38A1B525CA000E18A3B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				E448F37C1B506CEB00E18A3B /* FoursquareService.h */,
+				E448F37D1B506CEB00E18A3B /* FoursquareService.m */,
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 		E47CE73C1B505787005E5D17 = {
@@ -110,12 +124,11 @@
 			isa = PBXGroup;
 			children = (
 				E448F37F1B50701B00E18A3B /* Model */,
+				E448F38A1B525CA000E18A3B /* Service */,
 				E47CE74C1B505787005E5D17 /* AppDelegate.h */,
 				E47CE74D1B505787005E5D17 /* AppDelegate.m */,
 				E448F3761B50679300E18A3B /* DetailViewController.h */,
 				E448F3771B50679300E18A3B /* DetailViewController.m */,
-				E448F37C1B506CEB00E18A3B /* FoursquareService.h */,
-				E448F37D1B506CEB00E18A3B /* FoursquareService.m */,
 				E47CE74F1B505787005E5D17 /* VenuesViewController.h */,
 				E47CE7501B505787005E5D17 /* VenuesViewController.m */,
 				E47CE7521B505787005E5D17 /* Main.storyboard */,
@@ -252,6 +265,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E448F3891B525BEB00E18A3B /* VenueCellViewModel.m in Sources */,
 				E47CE7511B505787005E5D17 /* VenuesViewController.m in Sources */,
 				E448F37B1B506CAA00E18A3B /* VenueModel.m in Sources */,
 				E448F37E1B506CEB00E18A3B /* FoursquareService.m in Sources */,

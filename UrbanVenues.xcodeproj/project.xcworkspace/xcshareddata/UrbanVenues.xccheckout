@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>440F0BFB-1AF7-4CEE-AB8C-4A3741D35E8C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>UrbanVenues</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9AC6907475F076382FCCD7932F77E3EDF66169EB</key>
+		<string>https://github.com/uBhappy2/UrbanVenues</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>UrbanVenues.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9AC6907475F076382FCCD7932F77E3EDF66169EB</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/uBhappy2/UrbanVenues</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9AC6907475F076382FCCD7932F77E3EDF66169EB</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9AC6907475F076382FCCD7932F77E3EDF66169EB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>UrbanVenues</string>
+		</dict>
+	</array>
+</dict>
+</plist>

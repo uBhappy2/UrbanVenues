@@ -10,4 +10,8 @@
 
 @interface FoursquareService : NSObject
 
++ (instancetype)sharedInstance;
+- (NSDictionary *)searchByLocation:(CLLocation *)location;
+- (NSDictionary *)searchByQueryString:(NSString *)queryString;
+
 @end
