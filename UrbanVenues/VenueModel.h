@@ -25,4 +25,6 @@
 @property (nonatomic, assign) NSInteger rank;
 @property (nonatomic, assign) NSString *primaryCategory;
 
+- (void)setVenuePhotos;
+
 @end

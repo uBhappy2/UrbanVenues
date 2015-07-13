@@ -7,7 +7,13 @@
 //
 
 #import "VenueModel.h"
+#import "FoursquareService.h"
 
 @implementation VenueModel
+
+- (void)setVenuePhotos
+{
+    self.venuePhotos = [[FoursquareService sharedInstance] listOfPhotosForVenue:self.id];
+}
 
 @end

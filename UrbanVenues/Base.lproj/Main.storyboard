@@ -173,7 +173,7 @@
         <!--Settings View Controller-->
         <scene sceneID="xu7-iO-egH">
             <objects>
-                <viewController title="Settings" id="ZSI-NZ-oiK" userLabel="Settings View Controller" sceneMemberID="viewController">
+                <viewController title="Settings" id="ZSI-NZ-oiK" userLabel="Settings View Controller" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Axj-iI-WZN"/>
                         <viewControllerLayoutGuide type="bottom" id="jHQ-mF-4De"/>
@@ -190,11 +190,17 @@
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9XD-3o-Kn3">
                                 <rect key="frame" x="255" y="91" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchAction:" destination="ZSI-NZ-oiK" eventType="valueChanged" id="qpe-cy-RuY"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="zea-SX-sfm"/>
+                    <connections>
+                        <outlet property="locationSwitch" destination="9XD-3o-Kn3" id="RTW-me-W4O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="StE-Ci-zxS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

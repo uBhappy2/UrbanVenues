@@ -14,6 +14,8 @@
 		E448F3861B5070C400E18A3B /* TipsDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F3851B5070C400E18A3B /* TipsDTO.m */; };
 		E448F3891B525BEB00E18A3B /* VenueCellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F3881B525BEB00E18A3B /* VenueCellViewModel.m */; };
 		E448F38D1B5387B500E18A3B /* PhotoDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F38C1B5387B500E18A3B /* PhotoDTO.m */; };
+		E448F3901B539DA300E18A3B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F38F1B539DA300E18A3B /* SettingsViewController.m */; };
+		E448F3921B53EB0300E18A3B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E448F3911B53EB0300E18A3B /* CoreLocation.framework */; };
 		E47CE74B1B505787005E5D17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE74A1B505787005E5D17 /* main.m */; };
 		E47CE74E1B505787005E5D17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE74D1B505787005E5D17 /* AppDelegate.m */; };
 		E47CE7511B505787005E5D17 /* VenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE7501B505787005E5D17 /* VenuesViewController.m */; };
@@ -48,6 +50,9 @@
 		E448F3881B525BEB00E18A3B /* VenueCellViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueCellViewModel.m; sourceTree = "<group>"; };
 		E448F38B1B5387B500E18A3B /* PhotoDTO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoDTO.h; sourceTree = "<group>"; };
 		E448F38C1B5387B500E18A3B /* PhotoDTO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoDTO.m; sourceTree = "<group>"; };
+		E448F38E1B539DA300E18A3B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		E448F38F1B539DA300E18A3B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		E448F3911B53EB0300E18A3B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E47CE7451B505787005E5D17 /* UrbanVenues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrbanVenues.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47CE7491B505787005E5D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E47CE74A1B505787005E5D17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E448F3921B53EB0300E18A3B /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +116,7 @@
 		E47CE73C1B505787005E5D17 = {
 			isa = PBXGroup;
 			children = (
+				E448F3911B53EB0300E18A3B /* CoreLocation.framework */,
 				E47CE7471B505787005E5D17 /* UrbanVenues */,
 				E47CE7611B505787005E5D17 /* UrbanVenuesTests */,
 				E47CE7461B505787005E5D17 /* Products */,
@@ -134,6 +141,8 @@
 				E47CE74D1B505787005E5D17 /* AppDelegate.m */,
 				E448F3761B50679300E18A3B /* DetailViewController.h */,
 				E448F3771B50679300E18A3B /* DetailViewController.m */,
+				E448F38E1B539DA300E18A3B /* SettingsViewController.h */,
+				E448F38F1B539DA300E18A3B /* SettingsViewController.m */,
 				E47CE74F1B505787005E5D17 /* VenuesViewController.h */,
 				E47CE7501B505787005E5D17 /* VenuesViewController.m */,
 				E47CE7521B505787005E5D17 /* Main.storyboard */,
@@ -278,6 +287,7 @@
 				E448F3861B5070C400E18A3B /* TipsDTO.m in Sources */,
 				E448F3821B50703800E18A3B /* PhotosListDTO.m in Sources */,
 				E47CE74E1B505787005E5D17 /* AppDelegate.m in Sources */,
+				E448F3901B539DA300E18A3B /* SettingsViewController.m in Sources */,
 				E47CE74B1B505787005E5D17 /* main.m in Sources */,
 				E448F3781B50679300E18A3B /* DetailViewController.m in Sources */,
 			);

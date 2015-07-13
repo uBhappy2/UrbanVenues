@@ -7,7 +7,18 @@
 //
 
 #import "VenueCellViewModel.h"
+#import "VenueModel.h"
 
 @implementation VenueCellViewModel
+
++ (VenueCellViewModel *)createVenueCellViewModel:(VenueModel *)venueModel
+{
+    VenueCellViewModel *newModel = [VenueCellViewModel new];
+    newModel.venueTitle = venueModel.title;
+    newModel.venueIconImage = [venueModel.venuePhotos getPrimaryPhotoIconOfVenue];
+    newModel.venueDistance = venueModel.distance;
+
+    return newModel;
+}
 
 @end

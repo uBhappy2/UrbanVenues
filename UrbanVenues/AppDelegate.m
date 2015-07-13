@@ -5,7 +5,7 @@
 //  Created by Rao, Amit on 7/10/15.
 //  Copyright (c) 2015 Rao, Amit. All rights reserved.
 //
-
+@import CoreLocation;
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
     return YES;
 }
 

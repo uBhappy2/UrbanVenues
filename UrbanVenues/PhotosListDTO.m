@@ -7,6 +7,7 @@
 //
 
 #import "PhotosListDTO.h"
+#import "PhotoDTO.h"
 
 @implementation PhotosListDTO
 
@@ -19,5 +20,18 @@
 
     return nil;
 }
+
+- (UIImage *)getPrimaryPhotoOfVenue
+{
+    PhotoDTO *primaryPhoto = [self firstPhotoOfVenue];
+    return [primaryPhoto getVenuePhoto];
+}
+
+- (UIImage *)getPrimaryPhotoIconOfVenue
+{
+    PhotoDTO *primaryPhoto = [self firstPhotoOfVenue];
+    return [primaryPhoto getVenuePhotoIcon];
+}
+
 
 @end

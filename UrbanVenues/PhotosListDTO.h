@@ -7,6 +7,7 @@
 //
 
 @import Foundation;
+@import UIKit;
 @class PhotoDTO;
 
 @interface PhotosListDTO : NSObject
@@ -15,5 +16,7 @@
 @property (nonatomic, strong) NSMutableArray *photos;
 
 - (PhotoDTO *)firstPhotoOfVenue;
+- (UIImage *)getPrimaryPhotoOfVenue;
+- (UIImage *)getPrimaryPhotoIconOfVenue;
 
 @end

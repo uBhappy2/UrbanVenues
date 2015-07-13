@@ -12,6 +12,9 @@
 #import "PhotosListDTO.h"
 #import "VenueModel.h"
 
+@interface FoursquareService () <CLLocationManagerDelegate>
+
+@end
 
 @implementation FoursquareService
 
@@ -102,6 +105,12 @@ static const NSString *VERSION = @"20150712";
     return [self _sendHttpRequest:urlString];
 }
 
+- (PhotosListDTO *)listOfPhotosForVenue:(NSString *)venueId
+{
+    NSDictionary *photosDict = [self photosJSONDataForVenue:venueId];
+    return [self _parsePhotosJSONDictionaryAndReturnsVenuePhotos:photosDict];
+}
+
 
 
 - (NSArray *)_parseVenuesJSONDictionaryAndReturnVenueModelsList:(NSDictionary *)venuesDictionary
@@ -116,10 +125,12 @@ static const NSString *VERSION = @"20150712";
             venueModel.id = venueDict[@"id"];
             venueModel.title = venueDict[@"name"];
             venueModel.phone = venueDict[@"contact"][@"formattedPhone"];
-            venueModel.address = venueDict[@"location"][@"address"];
+            venueModel.address = venueDict[@"location"][@"formattedAddress"];
             venueModel.distance = [venueDict[@"location"][@"distance"] integerValue];
             venueModel.latitude = [venueDict[@"location"][@"latitude"] doubleValue];
             venueModel.longitude = [venueDict[@"location"][@"longitude"] doubleValue];
+
+            [venueModel setVenuePhotos];
 
             [venuesModelList addObject:venueModel];
         }
@@ -180,6 +191,10 @@ static const NSString *VERSION = @"20150712";
     return image;
 }
 
-
+// Location Manager Delegate Methods
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
+{
+    NSLog(@"%@", [locations lastObject]);
+}
 
 @end

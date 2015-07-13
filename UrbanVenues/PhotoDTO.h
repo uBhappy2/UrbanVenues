@@ -6,7 +6,8 @@
 //  Copyright (c) 2015 Rao, Amit. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
+@import UIKit;
 
 @interface PhotoDTO : NSObject
 
@@ -15,5 +16,9 @@
 @property (nonatomic, strong) NSString *suffix;
 @property (nonatomic, assign) NSInteger width;
 @property (nonatomic, assign) NSInteger height;
+
+- (UIImage *)getVenuePhoto;
+- (UIImage *)getVenuePhotoIcon;
+
 
 @end
