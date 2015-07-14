@@ -30,10 +30,23 @@
 
     self.title = @"Urban Venues";
 
+    DSActivityView *activityView = [DSBezelActivityView newActivityViewForView: self.view withLabel:		@"Loading..." width: 120];
+
+    [activityView setOpaque:YES];
+
+    dispatch_queue_t search_queue = dispatch_queue_create("search queue", NULL);
+
     if(self.settingsController)
     {
         if([self.settingsController isGeoLocationEnabled]) {
-            self.venuesList = [NSMutableArray arrayWithArray:[[FoursquareService sharedInstance] listOfVenuesByLocation:self.settingsController.locationManager.location]];
+            dispatch_async(search_queue, ^{
+                self.venuesList = [NSMutableArray arrayWithArray:[[FoursquareService sharedInstance] listOfVenuesByLocation:self.settingsController.locationManager.location]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                    [DSBezelActivityView removeViewAnimated:YES];
+
+                });
+            });
         }
     }
     else
@@ -50,7 +63,14 @@
             [userDefaults setValue:@(1) forKey:kLocationEnabledKey];
             [userDefaults synchronize];
 
-            self.venuesList = [NSMutableArray arrayWithArray:[[FoursquareService sharedInstance] listOfVenuesByLocation:self.locationManager.location]];
+            dispatch_async(search_queue, ^{
+                self.venuesList = [NSMutableArray arrayWithArray:[[FoursquareService sharedInstance] listOfVenuesByLocation:self.locationManager.location]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                    [DSBezelActivityView removeViewAnimated:YES];
+
+                });
+            });
         }
     }
 }
