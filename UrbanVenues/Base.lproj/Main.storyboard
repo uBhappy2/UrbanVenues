@@ -138,6 +138,9 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="fLX-ta-qFf" userLabel="spinner">
+                                <rect key="frame" x="150" y="164" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -152,10 +155,12 @@
                             <constraint firstItem="Grg-pD-Iy1" firstAttribute="leading" secondItem="457-4p-h3R" secondAttribute="leading" id="GjS-m0-eAu"/>
                             <constraint firstItem="yOp-c9-zEc" firstAttribute="top" secondItem="Grg-pD-Iy1" secondAttribute="bottom" constant="160" id="HuM-Dj-vop"/>
                             <constraint firstItem="Gfm-PS-KNd" firstAttribute="leading" secondItem="7ZG-BJ-Vzc" secondAttribute="leading" id="JLQ-Ws-A0h"/>
+                            <constraint firstAttribute="centerX" secondItem="fLX-ta-qFf" secondAttribute="centerX" id="LfP-df-2PU"/>
                             <constraint firstItem="xT7-Cm-JgG" firstAttribute="top" secondItem="k4f-4s-t5e" secondAttribute="bottom" constant="18" id="MF0-NL-kYd"/>
                             <constraint firstItem="Grg-pD-Iy1" firstAttribute="leading" secondItem="Dy0-gx-Sei" secondAttribute="leading" constant="45" id="RBT-WL-See"/>
                             <constraint firstAttribute="trailing" secondItem="Gfm-PS-KNd" secondAttribute="trailing" constant="61" id="Sjg-Ih-04C"/>
                             <constraint firstItem="yOp-c9-zEc" firstAttribute="top" secondItem="xT7-Cm-JgG" secondAttribute="bottom" constant="303" id="TLM-bM-7Mu"/>
+                            <constraint firstAttribute="centerY" secondItem="fLX-ta-qFf" secondAttribute="centerY" constant="110" id="Yzg-xc-tcq"/>
                             <constraint firstItem="7ZG-BJ-Vzc" firstAttribute="top" secondItem="Gfm-PS-KNd" secondAttribute="bottom" constant="-4" id="ZuQ-Vq-8ol"/>
                             <constraint firstAttribute="centerX" secondItem="xT7-Cm-JgG" secondAttribute="centerX" constant="-4.5" id="agC-wN-ebQ"/>
                             <constraint firstItem="Grg-pD-Iy1" firstAttribute="leading" secondItem="gc8-AT-l3o" secondAttribute="leading" id="bEV-Zb-GTQ"/>
@@ -178,6 +183,7 @@
                         <outlet property="hoursLabel" destination="Grg-pD-Iy1" id="sv0-bt-Pqo"/>
                         <outlet property="phoneLabel" destination="gc8-AT-l3o" id="oXA-pN-H1K"/>
                         <outlet property="ratingsLabel" destination="EUs-Gd-iAm" id="lod-sg-JO9"/>
+                        <outlet property="spinner" destination="fLX-ta-qFf" id="D8M-sa-qC6"/>
                         <outlet property="urlLabel" destination="457-4p-h3R" id="V4m-ay-THh"/>
                         <outlet property="venueImageView" destination="xT7-Cm-JgG" id="tVB-eg-5dh"/>
                         <outlet property="venueTitle" destination="Cgp-gf-Jeg" id="QYF-fw-W3z"/>

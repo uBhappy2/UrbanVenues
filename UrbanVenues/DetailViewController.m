@@ -12,6 +12,7 @@
 
 @interface DetailViewController ()
 
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *spinner;
 @end
 
 @implementation DetailViewController
@@ -32,8 +33,16 @@
 - (void)renderVenueDetails
 {
 
+    [self.spinner startAnimating];
+
     [self.venueModel.bestPhoto getVenuePhotoDataAndProcessData:^(NSData *imageData){
-        self.venueImageView.image = [UIImage imageWithData:imageData];
+        if(imageData){
+            self.venueImageView.image = [UIImage imageWithData:imageData];
+        }
+        else {
+            self.venueImageView.image = [UIImage imageNamed:@"Placeholder"];
+        }
+        [self.spinner stopAnimating];
     }];
 
 
