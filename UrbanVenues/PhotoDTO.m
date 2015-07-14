@@ -32,5 +32,12 @@
 }
 
 
+- (void)getVenuePhotoDataAndProcessData:(void (^)(NSData *imageData))processImage
+{
+     NSString *imageUrl = [NSString stringWithFormat:@"%@%ldx%ld%@", self.prefix, self.width, self.height, self.suffix];
+
+    [[self _foursquareService] queryUrlString:imageUrl andProcessImageData:processImage];
+}
+
 
 @end

@@ -12,6 +12,10 @@
 #import "PhotosListDTO.h"
 #import "VenueModel.h"
 
+#define DEBUG 1
+
+NSString * const kLocationEnabledKey = @"geolocationEnabled";
+
 @interface FoursquareService () <CLLocationManagerDelegate>
 
 @end
@@ -41,6 +45,10 @@ static const NSString *VERSION = @"20150712";
 
     NSString *urlString = [NSString stringWithFormat:@"%@search?ll=%f,%f&client_id=%@&client_secret=%@&v=%@",baseUrl, latitude, longitide, CLIENT_ID, CLIENT_SECRET, VERSION];
 
+#if DEBUG
+    NSLog(@"Search By Location %@", urlString);
+#endif
+
     return [self _sendHttpRequest:urlString];
 }
 
@@ -48,8 +56,27 @@ static const NSString *VERSION = @"20150712";
 {
      NSString *urlString = [NSString stringWithFormat:@"%@search?intent=global&query=%@&client_id=%@&client_secret=%@&v=%@",baseUrl, queryString, CLIENT_ID, CLIENT_SECRET, VERSION];
 
+#if DEBUG
+     NSLog(@"Search By Query String %@", urlString);
+#endif
+
     return [self _sendHttpRequest:urlString];
 }
+
+- (NSDictionary *)_searchByLocation:(CLLocation *)location andQueryString:(NSString *)queryString
+{
+    CLLocationDegrees latitude = location.coordinate.latitude;
+    CLLocationDegrees longitide = location.coordinate.longitude;
+
+    NSString *urlString = [NSString stringWithFormat:@"%@search?ll=%f,%f&query=%@&client_id=%@&client_secret=%@&v=%@",baseUrl, latitude, longitide, queryString, CLIENT_ID, CLIENT_SECRET, VERSION];
+
+#if DEBUG
+    NSLog(@"Search By Query String %@", urlString);
+#endif
+
+    return [self _sendHttpRequest:urlString];
+}
+
 
 - (NSDictionary *)_sendHttpRequest:(NSString *)urlString
 {
@@ -97,6 +124,16 @@ static const NSString *VERSION = @"20150712";
     return nil;
 }
 
+- (NSArray *)listOfVenuesByLocation:(CLLocation *)location andQueryString:(NSString *)queryString
+{
+    NSDictionary *venuesDictionary = [self _searchByLocation:location andQueryString:queryString];
+
+    if(venuesDictionary) {
+        return [self _parseVenuesJSONDictionaryAndReturnVenueModelsList:venuesDictionary];
+    }
+
+    return nil;
+}
 
 - (NSDictionary *)photosJSONDataForVenue:(NSString *)venueId
 {
@@ -248,7 +285,6 @@ static const NSString *VERSION = @"20150712";
     return image;
 }
 
-
 - (void)queryUrlString:(NSString *)imageUrl andProcessImageData:(void (^)(NSData *imageData))processImage
 {
     NSString* encodedUrlString = [imageUrl stringByAddingPercentEscapesUsingEncoding:
@@ -263,9 +299,14 @@ static const NSString *VERSION = @"20150712";
             processImage(imageData);
         });
     });
-
+    
 }
 
+- (BOOL)isGeolocationEnabled
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults valueForKey:kLocationEnabledKey];
+}
 
 // Location Manager Delegate Methods
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations

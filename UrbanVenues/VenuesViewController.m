@@ -46,6 +46,10 @@
         [self.locationManager startUpdatingLocation];
 
         if(self.locationManager.location) {
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            [userDefaults setValue:@(1) forKey:kLocationEnabledKey];
+            [userDefaults synchronize];
+
             self.venuesList = [NSMutableArray arrayWithArray:[[FoursquareService sharedInstance] listOfVenuesByLocation:self.locationManager.location]];
         }
     }
@@ -54,7 +58,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
 
     [self.tableView reloadData];
 }
@@ -80,6 +83,9 @@
     if(!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     }
+    cell.imageView.image = [UIImage imageNamed:@"Placeholder"];
+    cell.textLabel.text = nil;
+    cell.detailTextLabel.text = nil;
 
     VenueModel *currentVenueModel = [self.venuesList objectAtIndex:indexPath.row];
     VenueCellViewModel *venueCellModel = [VenueCellViewModel createVenueCellViewModel:currentVenueModel];
@@ -182,9 +188,14 @@
 
     dispatch_queue_t search_queue = dispatch_queue_create("search queue", NULL);
 
-
     dispatch_async(search_queue, ^{
-        self.venuesList = [NSMutableArray arrayWithArray:[[FoursquareService sharedInstance] listOfVenuesByQueryString:queryString]];
+
+        if([[FoursquareService sharedInstance] isGeolocationEnabled]) {
+            self.venuesList = [NSMutableArray arrayWithArray:[[FoursquareService sharedInstance] listOfVenuesByLocation:self.locationManager.location andQueryString:queryString]];
+        }
+        else {
+            self.venuesList = [NSMutableArray arrayWithArray:[[FoursquareService sharedInstance] listOfVenuesByQueryString:queryString]];
+        }
 
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];

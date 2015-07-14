@@ -7,9 +7,11 @@
 //
 
 @import CoreLocation;
+@import Foundation;
+#import "FoursquareService.h"
 #import "SettingsViewController.h"
 
-@interface SettingsViewController ()
+@interface SettingsViewController () <CLLocationManagerDelegate>
 
 @end
 
@@ -46,6 +48,8 @@
 
 - (IBAction)switchAction:(UISwitch *)sender
 {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+
     if(sender == self.locationSwitch)
     {
         if(sender.isOn)
@@ -54,11 +58,15 @@
             {
                 [self _initLocationManager];
             }
+            [userDefaults setValue:@(1) forKey:kLocationEnabledKey];
+            [userDefaults synchronize];
         }
         else
         {
             [self.locationManager stopUpdatingLocation];
             self.locationManager = nil;
+            [userDefaults removeObjectForKey:kLocationEnabledKey];
+            [userDefaults synchronize];
         }
     }
 }
@@ -68,4 +76,22 @@
     return self.locationSwitch.isOn;
 }
 
+- (void)locationManager:(CLLocationManager *)manager
+didChangeAuthorizationStatus:(CLAuthorizationStatus)status
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+
+   switch(status)
+    {
+        case kCLAuthorizationStatusAuthorizedAlways:
+        case kCLAuthorizationStatusAuthorizedWhenInUse:
+            [userDefaults setValue:@(1) forKey:kLocationEnabledKey];
+        case kCLAuthorizationStatusDenied:
+        case kCLAuthorizationStatusNotDetermined:
+        case kCLAuthorizationStatusRestricted:
+            [userDefaults removeObjectForKey:kLocationEnabledKey];
+    }
+
+    [userDefaults synchronize];
+}
 @end

@@ -17,6 +17,7 @@
     VenueCellViewModel *newModel = [VenueCellViewModel new];
     newModel.venueTitle = venueModel.title;
     newModel.venueIconImage = [venueModel.bestPhoto getVenuePhotoIcon];
+
     newModel.venueDistance = venueModel.distance;
 
     return newModel;

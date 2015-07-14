@@ -31,11 +31,11 @@
 
 - (void)renderVenueDetails
 {
-    UIImage *venueImage = [self.venueModel.bestPhoto getVenuePhoto];
 
-    if(venueImage) {
-        self.venueImageView.image = venueImage;
-    }
+    [self.venueModel.bestPhoto getVenuePhotoDataAndProcessData:^(NSData *imageData){
+        self.venueImageView.image = [UIImage imageWithData:imageData];
+    }];
+
 
     self.venueTitle.text = self.venueModel.title;
 
