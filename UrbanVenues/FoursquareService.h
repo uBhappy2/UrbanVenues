@@ -11,6 +11,7 @@
 @import CoreLocation;
 
 @class PhotosListDTO;
+@class VenueModel;
 
 @interface FoursquareService : NSObject
 
@@ -18,6 +19,7 @@
 - (NSArray *)listOfVenuesByLocation:(CLLocation *)location;
 - (NSArray *)listOfVenuesByQueryString:(NSString *)queryString;
 - (PhotosListDTO *)listOfPhotosForVenue:(NSString *)venueId;
+- (VenueModel *)createVenueModel:(NSString *)venueId;
 
 - (UIImage *)getImage:(NSString *)imageUrl;
 

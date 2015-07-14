@@ -125,7 +125,7 @@ static const NSString *VERSION = @"20150712";
             venueModel.id = venueDict[@"id"];
             venueModel.title = venueDict[@"name"];
             venueModel.phone = venueDict[@"contact"][@"formattedPhone"];
-            venueModel.address = venueDict[@"location"][@"formattedAddress"];
+            venueModel.address = venueDict[@"location"][@"address"];
             venueModel.distance = [venueDict[@"location"][@"distance"] integerValue];
             venueModel.latitude = [venueDict[@"location"][@"latitude"] doubleValue];
             venueModel.longitude = [venueDict[@"location"][@"longitude"] doubleValue];
@@ -190,6 +190,25 @@ static const NSString *VERSION = @"20150712";
 
     return image;
 }
+
+
+- (void)queryUrlString:(NSString *)imageUrl andProcessImageData:(void (^)(NSData *imageData))processImage
+{
+    NSString* encodedUrlString = [imageUrl stringByAddingPercentEscapesUsingEncoding:
+                                  NSUTF8StringEncoding];
+
+    NSURL *url = [NSURL URLWithString:encodedUrlString];
+
+    dispatch_queue_t download_queue = dispatch_queue_create("download queue", NULL);
+    dispatch_async(download_queue, ^{
+        NSData *imageData = [NSData dataWithContentsOfURL:url];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            processImage(imageData);
+        });
+    });
+
+}
+
 
 // Location Manager Delegate Methods
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations

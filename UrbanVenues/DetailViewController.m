@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "VenueModel.h"
 
 @interface DetailViewController ()
 
@@ -17,21 +18,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = self.venueModel.title;
+    [self renderVenueDetails];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+
 }
 
-/*
-#pragma mark - Navigation
+- (void)renderVenueDetails
+{
+    UIImage *venueImage = [self.venueModel.venuePhotos getPrimaryPhotoOfVenue];
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if(venueImage) {
+        self.venueImageView.image = venueImage;
+    }
+
+    self.venueTitle.text = self.venueModel.title;
+
+    self.addressLabel.text = self.venueModel.address;
+    [self.addressLabel sizeToFit];
+
+    if(self.venueModel.phone) {
+        self.phoneLabel.text = [NSString stringWithFormat:@"Phone : %@",self.venueModel.phone];
+        [self.phoneLabel sizeToFit];
+    }
+    else {
+        self.phoneLabel.hidden = YES;
+    }
+
+    if(self.venueModel.hours) {
+        self.hoursLabel.text = [NSString stringWithFormat:@"Hours : %@", self.venueModel.hours];
+        [self.hoursLabel sizeToFit];
+    } else {
+        self.hoursLabel.hidden = YES;
+    }
+
 }
-*/
 
 @end

@@ -23,7 +23,8 @@
 @property (nonatomic, strong) NSString *phone;
 @property (nonatomic, assign) NSInteger numberLikes;
 @property (nonatomic, assign) NSInteger rank;
-@property (nonatomic, assign) NSString *primaryCategory;
+@property (nonatomic, strong) NSString *primaryCategory;
+@property (nonatomic, strong) NSString *hours;
 
 - (void)setVenuePhotos;
 

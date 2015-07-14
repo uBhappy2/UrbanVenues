@@ -19,14 +19,14 @@
 
 - (UIImage *)getVenuePhoto
 {
-    NSString *imageUrl = [NSString stringWithFormat:@"%@/%ldx%ld/%@", self.prefix, self.width, self.height, self.suffix];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@%ldx%ld%@", self.prefix, self.width, self.height, self.suffix];
 
     return [[self _foursquareService] getImage:imageUrl];
 }
 
 - (UIImage *)getVenuePhotoIcon
 {
-    NSString *imageUrl = [NSString stringWithFormat:@"%@/100x100/%@", self.prefix, self.suffix];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@100x100%@", self.prefix, self.suffix];
 
     return [[self _foursquareService] getImage:imageUrl];
 }

@@ -6,15 +6,18 @@
 //  Copyright (c) 2015 Rao, Amit. All rights reserved.
 //
 #import "DetailViewController.h"
+#import "DSActivityView.h"
 #import "FoursquareService.h"
-#import "VenuesViewController.h"
 #import "SettingsViewController.h"
+#import "VenuesViewController.h"
+#import "VenueCellViewModel.h"
+#import "VenueModel.h"
 
 @interface VenuesViewController () <UISearchBarDelegate, CLLocationManagerDelegate>
 
 @property (nonatomic, weak) IBOutlet UISearchBar *searchBar;
 @property (nonatomic, weak) IBOutlet UIButton *settingsButton;
-@property (nonatomic, strong) NSArray *venuesList;
+@property (nonatomic, strong) NSMutableArray *venuesList;
 @property (nonatomic, strong) SettingsViewController *settingsController;
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
@@ -30,7 +33,7 @@
     if(self.settingsController)
     {
         if([self.settingsController isGeoLocationEnabled]) {
-            self.venuesList = [[FoursquareService sharedInstance] listOfVenuesByLocation:self.settingsController.locationManager.location];
+            self.venuesList = [NSMutableArray arrayWithArray:[[FoursquareService sharedInstance] listOfVenuesByLocation:self.settingsController.locationManager.location]];
         }
     }
     else
@@ -43,7 +46,7 @@
         [self.locationManager startUpdatingLocation];
 
         if(self.locationManager.location) {
-            self.venuesList = [[FoursquareService sharedInstance] listOfVenuesByLocation:self.locationManager.location];
+            self.venuesList = [NSMutableArray arrayWithArray:[[FoursquareService sharedInstance] listOfVenuesByLocation:self.locationManager.location]];
         }
     }
 }
@@ -78,20 +81,58 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:reuseIdentifier];
     }
 
-    
+    VenueModel *currentVenueModel = [self.venuesList objectAtIndex:indexPath.row];
+    VenueCellViewModel *venueCellModel = [VenueCellViewModel createVenueCellViewModel:currentVenueModel];
 
+    cell.textLabel.text = venueCellModel.venueTitle;
+
+    if(venueCellModel.venueDistance){
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"Distance %ld meters", venueCellModel.venueDistance];
+
+    }
+    else {
+        cell.detailTextLabel.hidden = YES;
+    }
+
+    if(venueCellModel.venueIconImage) {
+        cell.imageView.image = venueCellModel.venueIconImage;
+    }
+    
     return cell;
 }
 
 
- #pragma mark - Navigation
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+
+}
+
+#pragma mark - Navigation
+
+- (void)prepareViewController:(id)vc forSegue:(NSString *)segueIdentifer fromIndexPath:(NSIndexPath *)indexPath
+{
+    VenueModel *venueModel = [self.venuesList objectAtIndex:indexPath.row];
+
+    if([segueIdentifer isEqualToString:@"ShowDetail"]) {
+        DetailViewController *detailController = (DetailViewController *)vc;
+        detailController.venueModel = venueModel;
+    }
+
+}
 
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
-     if([segue.identifier isEqualToString:@"ShowDetail"]) {
 
+     NSIndexPath *indexPath = nil;
+
+     if([segue.identifier isEqualToString:@"ShowDetail"]) {
+         DetailViewController *detailController = segue.destinationViewController;
+         if([sender isKindOfClass:[UITableViewCell class]]) {
+              indexPath = [self.tableView indexPathForCell:sender];
+         }
+
+         [self prepareViewController:detailController forSegue:segue.identifier fromIndexPath:indexPath];
 
      }
      else if([segue.identifier isEqualToString:@"ShowSettings"]){
@@ -130,8 +171,27 @@
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
 {
-
     [searchBar resignFirstResponder];
+    NSLog(@"Search Bar Text - %@", searchBar.text);
+    NSString* queryString = searchBar.text;
+    [self.venuesList removeAllObjects];
+
+    DSActivityView *activityView = [DSBezelActivityView newActivityViewForView: self.view withLabel:		@"Searching..." width: 120];
+
+    [activityView setOpaque:YES];
+
+    dispatch_queue_t search_queue = dispatch_queue_create("search queue", NULL);
+
+
+    dispatch_async(search_queue, ^{
+        self.venuesList = [NSMutableArray arrayWithArray:[[FoursquareService sharedInstance] listOfVenuesByQueryString:queryString]];
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadData];
+            [DSBezelActivityView removeViewAnimated:YES];
+
+        });
+    });
 }
 
 // Location Manager Delegate Methods

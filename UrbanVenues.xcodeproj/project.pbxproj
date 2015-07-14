@@ -16,6 +16,7 @@
 		E448F38D1B5387B500E18A3B /* PhotoDTO.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F38C1B5387B500E18A3B /* PhotoDTO.m */; };
 		E448F3901B539DA300E18A3B /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F38F1B539DA300E18A3B /* SettingsViewController.m */; };
 		E448F3921B53EB0300E18A3B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E448F3911B53EB0300E18A3B /* CoreLocation.framework */; };
+		E448F3961B54741900E18A3B /* DSActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = E448F3951B54741900E18A3B /* DSActivityView.m */; };
 		E47CE74B1B505787005E5D17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE74A1B505787005E5D17 /* main.m */; };
 		E47CE74E1B505787005E5D17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE74D1B505787005E5D17 /* AppDelegate.m */; };
 		E47CE7511B505787005E5D17 /* VenuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E47CE7501B505787005E5D17 /* VenuesViewController.m */; };
@@ -53,6 +54,8 @@
 		E448F38E1B539DA300E18A3B /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		E448F38F1B539DA300E18A3B /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		E448F3911B53EB0300E18A3B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E448F3941B54741900E18A3B /* DSActivityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DSActivityView.h; sourceTree = "<group>"; };
+		E448F3951B54741900E18A3B /* DSActivityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DSActivityView.m; sourceTree = "<group>"; };
 		E47CE7451B505787005E5D17 /* UrbanVenues.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UrbanVenues.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E47CE7491B505787005E5D17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E47CE74A1B505787005E5D17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -113,6 +116,15 @@
 			name = Service;
 			sourceTree = "<group>";
 		};
+		E448F3931B5473FD00E18A3B /* Activity View */ = {
+			isa = PBXGroup;
+			children = (
+				E448F3941B54741900E18A3B /* DSActivityView.h */,
+				E448F3951B54741900E18A3B /* DSActivityView.m */,
+			);
+			name = "Activity View";
+			sourceTree = "<group>";
+		};
 		E47CE73C1B505787005E5D17 = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +147,7 @@
 		E47CE7471B505787005E5D17 /* UrbanVenues */ = {
 			isa = PBXGroup;
 			children = (
+				E448F3931B5473FD00E18A3B /* Activity View */,
 				E448F37F1B50701B00E18A3B /* Model */,
 				E448F38A1B525CA000E18A3B /* Service */,
 				E47CE74C1B505787005E5D17 /* AppDelegate.h */,
@@ -281,6 +294,7 @@
 			files = (
 				E448F3891B525BEB00E18A3B /* VenueCellViewModel.m in Sources */,
 				E47CE7511B505787005E5D17 /* VenuesViewController.m in Sources */,
+				E448F3961B54741900E18A3B /* DSActivityView.m in Sources */,
 				E448F37B1B506CAA00E18A3B /* VenueModel.m in Sources */,
 				E448F37E1B506CEB00E18A3B /* FoursquareService.m in Sources */,
 				E448F38D1B5387B500E18A3B /* PhotoDTO.m in Sources */,
