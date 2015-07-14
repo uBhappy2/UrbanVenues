@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vTk-B6-IeH">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Urban Venues-->
@@ -107,20 +108,32 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Venue Way, Philadelphia, PA 19103 " lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gfm-PS-KNd" userLabel="Address Label">
-                                <rect key="frame" x="45" y="317" width="156" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Venue Way" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gfm-PS-KNd" userLabel="Address Label">
+                                <rect key="frame" x="45" y="322" width="214" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Philadelphia, PA 19103" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZG-BJ-Vzc" userLabel="cityStateZip Label">
+                                <rect key="frame" x="45" y="341" width="149" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gc8-AT-l3o">
-                                <rect key="frame" x="45" y="363" width="214" height="17"/>
+                                <rect key="frame" x="45" y="367" width="214" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grg-pD-Iy1">
-                                <rect key="frame" x="45" y="383" width="214" height="38"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hours" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grg-pD-Iy1" userLabel="Hours Status">
+                                <rect key="frame" x="45" y="383" width="214" height="25"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="457-4p-h3R">
+                                <rect key="frame" x="45" y="409" width="214" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -129,35 +142,43 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Gfm-PS-KNd" firstAttribute="leading" secondItem="Cgp-gf-Jeg" secondAttribute="leading" id="5jJ-w1-MAS"/>
-                            <constraint firstItem="Grg-pD-Iy1" firstAttribute="top" secondItem="Gfm-PS-KNd" secondAttribute="bottom" constant="25" id="9Ze-3O-qtD"/>
-                            <constraint firstItem="gc8-AT-l3o" firstAttribute="top" secondItem="xT7-Cm-JgG" secondAttribute="bottom" constant="98" id="9jw-Bb-s2p"/>
+                            <constraint firstItem="gc8-AT-l3o" firstAttribute="top" secondItem="7ZG-BJ-Vzc" secondAttribute="bottom" constant="2" id="8gQ-mz-oVY"/>
+                            <constraint firstItem="Grg-pD-Iy1" firstAttribute="top" secondItem="Gfm-PS-KNd" secondAttribute="bottom" constant="38" id="9Ze-3O-qtD"/>
+                            <constraint firstItem="gc8-AT-l3o" firstAttribute="top" secondItem="xT7-Cm-JgG" secondAttribute="bottom" constant="102" id="9jw-Bb-s2p"/>
                             <constraint firstAttribute="trailing" secondItem="xT7-Cm-JgG" secondAttribute="trailing" constant="61" id="C41-dk-4pY"/>
                             <constraint firstItem="Grg-pD-Iy1" firstAttribute="leading" secondItem="Gfm-PS-KNd" secondAttribute="leading" id="DQG-1e-JEU"/>
                             <constraint firstItem="EUs-Gd-iAm" firstAttribute="centerX" secondItem="xT7-Cm-JgG" secondAttribute="centerX" id="Dl0-l5-14o"/>
                             <constraint firstItem="Cgp-gf-Jeg" firstAttribute="top" secondItem="EUs-Gd-iAm" secondAttribute="bottom" constant="8" id="FBu-J8-K3b"/>
-                            <constraint firstItem="yOp-c9-zEc" firstAttribute="top" secondItem="Grg-pD-Iy1" secondAttribute="bottom" constant="147" id="HuM-Dj-vop"/>
+                            <constraint firstItem="Grg-pD-Iy1" firstAttribute="leading" secondItem="457-4p-h3R" secondAttribute="leading" id="GjS-m0-eAu"/>
+                            <constraint firstItem="yOp-c9-zEc" firstAttribute="top" secondItem="Grg-pD-Iy1" secondAttribute="bottom" constant="160" id="HuM-Dj-vop"/>
+                            <constraint firstItem="Gfm-PS-KNd" firstAttribute="leading" secondItem="7ZG-BJ-Vzc" secondAttribute="leading" id="JLQ-Ws-A0h"/>
                             <constraint firstItem="xT7-Cm-JgG" firstAttribute="top" secondItem="k4f-4s-t5e" secondAttribute="bottom" constant="18" id="MF0-NL-kYd"/>
                             <constraint firstItem="Grg-pD-Iy1" firstAttribute="leading" secondItem="Dy0-gx-Sei" secondAttribute="leading" constant="45" id="RBT-WL-See"/>
-                            <constraint firstAttribute="trailing" secondItem="Gfm-PS-KNd" secondAttribute="trailing" constant="119" id="Sjg-Ih-04C"/>
+                            <constraint firstAttribute="trailing" secondItem="Gfm-PS-KNd" secondAttribute="trailing" constant="61" id="Sjg-Ih-04C"/>
                             <constraint firstItem="yOp-c9-zEc" firstAttribute="top" secondItem="xT7-Cm-JgG" secondAttribute="bottom" constant="303" id="TLM-bM-7Mu"/>
+                            <constraint firstItem="7ZG-BJ-Vzc" firstAttribute="top" secondItem="Gfm-PS-KNd" secondAttribute="bottom" constant="-4" id="ZuQ-Vq-8ol"/>
                             <constraint firstAttribute="centerX" secondItem="xT7-Cm-JgG" secondAttribute="centerX" constant="-4.5" id="agC-wN-ebQ"/>
                             <constraint firstItem="Grg-pD-Iy1" firstAttribute="leading" secondItem="gc8-AT-l3o" secondAttribute="leading" id="bEV-Zb-GTQ"/>
-                            <constraint firstItem="Gfm-PS-KNd" firstAttribute="top" secondItem="xT7-Cm-JgG" secondAttribute="bottom" constant="52" id="bHr-Es-n3I"/>
+                            <constraint firstItem="Gfm-PS-KNd" firstAttribute="top" secondItem="xT7-Cm-JgG" secondAttribute="bottom" constant="57" id="bHr-Es-n3I"/>
                             <constraint firstItem="EUs-Gd-iAm" firstAttribute="top" secondItem="xT7-Cm-JgG" secondAttribute="bottom" constant="8" id="dcI-Ys-fUE"/>
-                            <constraint firstItem="Gfm-PS-KNd" firstAttribute="top" secondItem="Cgp-gf-Jeg" secondAttribute="bottom" constant="-7" id="i7D-JF-AEL"/>
-                            <constraint firstItem="Gfm-PS-KNd" firstAttribute="top" secondItem="EUs-Gd-iAm" secondAttribute="bottom" constant="23" id="ie2-cj-Qr3"/>
+                            <constraint firstItem="Gfm-PS-KNd" firstAttribute="top" secondItem="Cgp-gf-Jeg" secondAttribute="bottom" constant="-2" id="i7D-JF-AEL"/>
+                            <constraint firstItem="Gfm-PS-KNd" firstAttribute="top" secondItem="EUs-Gd-iAm" secondAttribute="bottom" constant="28" id="ie2-cj-Qr3"/>
                             <constraint firstItem="xT7-Cm-JgG" firstAttribute="leading" secondItem="Dy0-gx-Sei" secondAttribute="leading" constant="70" id="jSr-6n-jih"/>
                             <constraint firstAttribute="trailing" secondItem="gc8-AT-l3o" secondAttribute="trailing" constant="61" id="pPo-Mj-8Jp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="457-4p-h3R" secondAttribute="trailing" constant="45" id="sBB-eN-7xg"/>
                             <constraint firstAttribute="trailing" secondItem="Grg-pD-Iy1" secondAttribute="trailing" constant="61" id="tgk-91-vae"/>
-                            <constraint firstItem="Grg-pD-Iy1" firstAttribute="top" secondItem="gc8-AT-l3o" secondAttribute="bottom" constant="3" id="wOK-Ki-YgG"/>
+                            <constraint firstItem="457-4p-h3R" firstAttribute="top" secondItem="Grg-pD-Iy1" secondAttribute="bottom" constant="1" id="v3E-Tb-3qf"/>
+                            <constraint firstItem="Grg-pD-Iy1" firstAttribute="top" secondItem="gc8-AT-l3o" secondAttribute="bottom" constant="-1" id="wOK-Ki-YgG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="odv-bE-W6a"/>
                     <connections>
                         <outlet property="addressLabel" destination="Gfm-PS-KNd" id="9Oe-67-Sxz"/>
+                        <outlet property="cityStateZipLabel" destination="7ZG-BJ-Vzc" id="gZY-4U-YhE"/>
                         <outlet property="hoursLabel" destination="Grg-pD-Iy1" id="sv0-bt-Pqo"/>
                         <outlet property="phoneLabel" destination="gc8-AT-l3o" id="oXA-pN-H1K"/>
                         <outlet property="ratingsLabel" destination="EUs-Gd-iAm" id="lod-sg-JO9"/>
+                        <outlet property="urlLabel" destination="457-4p-h3R" id="V4m-ay-THh"/>
                         <outlet property="venueImageView" destination="xT7-Cm-JgG" id="tVB-eg-5dh"/>
                         <outlet property="venueTitle" destination="Cgp-gf-Jeg" id="QYF-fw-W3z"/>
                     </connections>

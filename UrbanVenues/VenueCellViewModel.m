@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Rao, Amit. All rights reserved.
 //
 
+#import "PhotoDTO.h"
 #import "VenueCellViewModel.h"
 #import "VenueModel.h"
 
@@ -15,7 +16,7 @@
 {
     VenueCellViewModel *newModel = [VenueCellViewModel new];
     newModel.venueTitle = venueModel.title;
-    newModel.venueIconImage = [venueModel.venuePhotos getPrimaryPhotoIconOfVenue];
+    newModel.venueIconImage = [venueModel.bestPhoto getVenuePhotoIcon];
     newModel.venueDistance = venueModel.distance;
 
     return newModel;

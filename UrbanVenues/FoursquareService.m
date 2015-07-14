@@ -112,6 +112,68 @@ static const NSString *VERSION = @"20150712";
 }
 
 
+- (NSDictionary *)venueJSONDataForVenue:(NSString *)venueId
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@%@?client_id=%@&client_secret=%@&v=%@",baseUrl, venueId, CLIENT_ID, CLIENT_SECRET, VERSION];
+
+    return [self _sendHttpRequest:urlString];
+}
+
+
+
+
+- (VenueModel *)createVenueModel:(NSString *)venueId
+{
+    NSDictionary *venueDictionary = [self venueJSONDataForVenue:venueId];
+
+    return [self _parseVenueJSONDictionaryAndReturnVenueModel:venueDictionary];
+}
+
+
+
+- (VenueModel *)_parseVenueJSONDictionaryAndReturnVenueModel:(NSDictionary *)venueDictionary
+{
+    VenueModel *venueModel = nil;
+
+    if([self _isHTTPResponse200OK:venueDictionary]) {
+        NSDictionary *venueDict = venueDictionary[@"response"][@"venue"];
+        venueModel = [VenueModel new];
+        venueModel.id = venueDict[@"id"];
+        venueModel.title = venueDict[@"name"];
+        venueModel.phone = venueDict[@"contact"][@"formattedPhone"];
+        venueModel.address = venueDict[@"location"][@"address"];
+        venueModel.city = venueDict[@"location"][@"city"];
+        venueModel.state = venueDict[@"location"][@"state"];
+        venueModel.zip = venueDict[@"location"][@"postalCode"];
+        venueModel.distance = [venueDict[@"location"][@"distance"] integerValue];
+        venueModel.latitude = [venueDict[@"location"][@"latitude"] doubleValue];
+        venueModel.longitude = [venueDict[@"location"][@"longitude"] doubleValue];
+        venueModel.url = venueDict[@"url"];
+        venueModel.numberLikes = [venueDict[@"likes"][@"count"] integerValue];
+        venueModel.rating = [venueDict[@"rating"] integerValue];
+        venueModel.ratingSignals = [venueDict[@"ratingSignals"] integerValue];
+        venueModel.status = venueDict[@"hours"][@"status"];
+
+        PhotoDTO *bestPhotoDTO = [PhotoDTO new];
+        bestPhotoDTO.id = venueDict[@"bestPhoto"][@"id"];
+        bestPhotoDTO.prefix = venueDict[@"bestPhoto"][@"prefix"];
+        bestPhotoDTO.suffix = venueDict[@"bestPhoto"][@"suffix"];
+        bestPhotoDTO.width = [venueDict[@"bestPhoto"][@"width"] integerValue];
+        bestPhotoDTO.height = [venueDict[@"bestPhoto"][@"height"] integerValue];
+        venueModel.bestPhoto = bestPhotoDTO;
+
+        venueModel.venueDescription = venueDict[@"description"];
+
+    }
+    else {
+        //handle HTTP error codes (TBD)
+
+    }
+
+    return venueModel;
+}
+
+
 
 - (NSArray *)_parseVenuesJSONDictionaryAndReturnVenueModelsList:(NSDictionary *)venuesDictionary
 {
@@ -121,18 +183,13 @@ static const NSString *VERSION = @"20150712";
         NSArray *venuesList = venuesDictionary[@"response"][@"venues"];
         for(NSDictionary *venueDict in venuesList)
         {
-            VenueModel *venueModel = [VenueModel new];
-            venueModel.id = venueDict[@"id"];
-            venueModel.title = venueDict[@"name"];
-            venueModel.phone = venueDict[@"contact"][@"formattedPhone"];
-            venueModel.address = venueDict[@"location"][@"address"];
-            venueModel.distance = [venueDict[@"location"][@"distance"] integerValue];
-            venueModel.latitude = [venueDict[@"location"][@"latitude"] doubleValue];
-            venueModel.longitude = [venueDict[@"location"][@"longitude"] doubleValue];
+            VenueModel *venueModel = [self createVenueModel:venueDict[@"id"]];
 
             [venueModel setVenuePhotos];
 
-            [venuesModelList addObject:venueModel];
+            if(venueModel){
+                [venuesModelList addObject:venueModel];
+            }
         }
 
         return venuesModelList;
