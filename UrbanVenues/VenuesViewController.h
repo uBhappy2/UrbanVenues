@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  VenuesViewController.h
 //  UrbanVenues
 //
 //  Created by Rao, Amit on 7/10/15.

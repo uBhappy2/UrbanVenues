@@ -20,5 +20,6 @@
 - (UIImage *)getVenuePhoto;
 - (UIImage *)getVenuePhotoIcon;
 - (void)getVenuePhotoDataAndProcessData:(void (^)(NSData *imageData))processImage;
+- (void)getVenuePhotoIconDataAndProcessData:(void (^)(NSData *imageData))processImage;
 
 @end

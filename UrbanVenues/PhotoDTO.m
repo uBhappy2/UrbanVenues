@@ -26,7 +26,7 @@
 
 - (UIImage *)getVenuePhotoIcon
 {
-    NSString *imageUrl = [NSString stringWithFormat:@"%@100x100%@", self.prefix, self.suffix];
+    NSString *imageUrl = [NSString stringWithFormat:@"%@48x32%@", self.prefix, self.suffix];
 
     return [[self _foursquareService] getImage:imageUrl];
 }
@@ -35,6 +35,13 @@
 - (void)getVenuePhotoDataAndProcessData:(void (^)(NSData *imageData))processImage
 {
      NSString *imageUrl = [NSString stringWithFormat:@"%@%ldx%ld%@", self.prefix, self.width, self.height, self.suffix];
+
+    [[self _foursquareService] queryUrlString:imageUrl andProcessImageData:processImage];
+}
+
+- (void)getVenuePhotoIconDataAndProcessData:(void (^)(NSData *imageData))processImage
+{
+    NSString *imageUrl = [NSString stringWithFormat:@"%@48x32%@", self.prefix, self.suffix];
 
     [[self _foursquareService] queryUrlString:imageUrl andProcessImageData:processImage];
 }
