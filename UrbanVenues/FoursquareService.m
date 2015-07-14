@@ -222,6 +222,8 @@ static const NSString *VERSION = @"20150712";
         {
             VenueModel *venueModel = [self createVenueModel:venueDict[@"id"]];
 
+            venueModel.distance = [venueDict[@"location"][@"distance"] integerValue];
+
             [venueModel setVenuePhotos];
 
             if(venueModel){
